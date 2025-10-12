@@ -1,1 +1,1 @@
-Setup, install, API key instructions coming soon!
+Setup/API key instructions coming soon!

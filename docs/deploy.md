@@ -1,1 +1,1 @@
-Deployment, testing, and beta info coming soon!
+Deployment/testing info coming soon!

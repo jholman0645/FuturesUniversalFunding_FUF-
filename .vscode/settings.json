@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.windowsUseConptyDll": true,
+    "terminal.sourceControlRepositoriesKind": "both",
+    "terminal.integrated.drawBoldTextInBrightColors": false
+}

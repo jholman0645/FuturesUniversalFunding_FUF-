@@ -1,0 +1,51 @@
+body {
+  background: linear-gradient(135deg, #0a0a0a 60%, #2d083b 100%);
+  color: #fff;
+  font-family: "Orbitron", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 2em 3em;
+  background: rgba(20, 0, 25, 0.9);
+  border-radius: 1.5em;
+  box-shadow: 0 0 70px 15px #fd36c5;
+  border: 2px solid #fd36c5;
+}
+.logo {
+  width: 90px;
+  margin-top: 10px;
+  filter: drop-shadow(0 0 8px #fd36c5);
+}
+.hero {
+  margin: 4em 0 2em 0;
+  border-radius: 1.2em;
+  background: rgba(30,0,40,.7);
+  box-shadow: 0 0 40px 7px #611ea5;
+  border: 2px solid #fe63e0;
+  padding: 2em;
+  text-align: center;
+}
+.mascot-bg img {
+  max-width: 130px;
+  filter: drop-shadow(0 0 16px #fff0fa);
+  margin-bottom: 25px;
+}
+.qr-section img {
+  width: 110px;
+  height: 110px;
+  background: #fff;
+  border-radius: 16px;
+  margin: 12px auto 0 auto;
+  transition: box-shadow .2s;
+}
+.qr-section img:hover { box-shadow: 0 0 16px #ee64e1; }
+.subtitle { color: #fd36c5; letter-spacing: .12em; }
+footer {
+  margin-top: 3em;
+  text-align: center;
+  color: #aaa;
+  font-size: 0.95em;
+}

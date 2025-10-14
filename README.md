@@ -1,6 +1,6 @@
-# Futures Universal Funding (FUF)
-A cross-chain DeFi protocol for lending and futures, powered by FUF tokens.
-
+    # Futures Universal Funding (FUF)
+            A cross-chain DeFi protocol for lending and futures, powered by FUF token'.
+#######################
 ## Folder Structure
 - contracts : Solidity smart contracts
 - frontend : Web UI/app (static or React)

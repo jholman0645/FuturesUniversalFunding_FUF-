@@ -1,6 +1,6 @@
 # KMS Holman – A True Fintech Lending
 
-![KMS Holman Logo](./assets/kms-holman-logo.png)
+![KMS Holman Logo](./assets/logo.png)
 
 A cross-chain DeFi protocol for lending and futures, powered by innovative fintech solutions.
 
@@ -56,6 +56,11 @@ bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh
 **Solana (SOL)**
 ```
 7EqQdEUomqa9SNPRykMFB8iqMzGHJ6ePvT3PHWnqKvjv
+```
+
+**Cash App**
+```
+$johnholman46
 ```
 
 *Every contribution helps us innovate and serve our community better.*

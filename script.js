@@ -1,4 +1,4 @@
-4// KMS Holman - A True Fintech Lending
+// KMS Holman - A True Fintech Lending
 // Beta App JavaScript
 
 console.log("KMS Holman Beta App Loaded");
@@ -30,3 +30,5 @@ document.addEventListener('DOMContentLoaded', function() {
   console.log('KMS Holman Beta initialized');
   console.log('Powered by innovation, driven by integrity.');
 });
+
+// Signed by John Holman, in honor of Kiara Jink Holman (07/02/23 - 01/18/24)

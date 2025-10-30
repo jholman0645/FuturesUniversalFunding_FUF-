@@ -32,3 +32,5 @@ At **KMS Holman – A True Fintech Lending**, we are guided by these fundamental
 
 ---
 **© 2025 KMS Holman – A True Fintech Lending. All rights reserved.**
+
+*Signed by John Holman, in honor of Kiara Jink Holman (07/02/23 - 01/18/24)*

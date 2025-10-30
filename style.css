@@ -5,6 +5,7 @@ body {
   margin: 0;
   padding: 0;
 }
+
 .container {
   max-width: 900px;
   margin: 30px auto;
@@ -14,11 +15,29 @@ body {
   box-shadow: 0 0 70px 15px #fd36c5;
   border: 2px solid #fd36c5;
 }
+
+header {
+  text-align: center;
+}
+
 .logo {
   width: 90px;
   margin-top: 10px;
   filter: drop-shadow(0 0 8px #fd36c5);
 }
+
+h1 {
+  font-size: 2.5em;
+  margin: 0.5em 0 0.2em 0;
+  text-shadow: 0 0 20px #fe63e0;
+}
+
+.subtitle {
+  font-size: 1.1em;
+  color: #aaa;
+  margin-top: 0;
+}
+
 .hero {
   margin: 4em 0 2em 0;
   border-radius: 1.2em;
@@ -28,24 +47,193 @@ body {
   padding: 2em;
   text-align: center;
 }
+
 .mascot-bg img {
   max-width: 130px;
   filter: drop-shadow(0 0 16px #fff0fa);
   margin-bottom: 25px;
 }
-.qr-section img {
-  width: 110px;
-  height: 110px;
-  background: #fff;
-  border-radius: 16px;
-  margin: 12px auto 0 auto;
-  transition: box-shadow .2s;
+
+.app-actions {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
 }
-.qr-section img:hover { box-shadow: 0 0 16px #ee64e1; }
-.subtitle { color: #fd36c5; letter-spacing: .12em; }
+
+.btn-primary, .btn-secondary {
+  padding: 0.8em 2em;
+  border: none;
+  border-radius: 0.5em;
+  font-size: 1em;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #fe63e0, #fd36c5);
+  color: #fff;
+  box-shadow: 0 0 20px #fd36c5;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px #fd36c5;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid #fe63e0;
+  color: #fe63e0;
+}
+
+.btn-secondary:hover {
+  background: #fe63e0;
+  color: #000;
+}
+
+.features {
+  margin: 3em 0;
+}
+
+.features h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 1.5em;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5em;
+}
+
+.feature-card {
+  background: rgba(30,0,40,.5);
+  border: 1px solid #fe63e0;
+  border-radius: 1em;
+  padding: 1.5em;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #fe63e0;
+}
+
+.feature-card h3 {
+  color: #fe63e0;
+  margin-top: 0;
+}
+
+.donations {
+  margin: 3em 0;
+  padding: 2em;
+  background: rgba(30,0,40,.5);
+  border: 2px solid #fd36c5;
+  border-radius: 1em;
+  text-align: center;
+}
+
+.donations h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.wallet-addresses {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+
+.wallet-item {
+  background: rgba(0,0,0,.4);
+  padding: 1em;
+  border-radius: 0.5em;
+  border: 1px solid #fe63e0;
+}
+
+.wallet-item h3 {
+  color: #fe63e0;
+  margin: 0 0 0.5em 0;
+  font-size: 1.2em;
+}
+
+.wallet-item code {
+  color: #fff;
+  background: rgba(0,0,0,.6);
+  padding: 0.5em;
+  border-radius: 0.3em;
+  display: block;
+  word-break: break-all;
+  font-size: 0.9em;
+}
+
+.repo-links {
+  margin: 3em 0;
+  padding: 2em;
+  background: rgba(30,0,40,.5);
+  border: 2px solid #611ea5;
+  border-radius: 1em;
+  text-align: center;
+}
+
+.repo-links h2 {
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+.repo-buttons {
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
 footer {
   margin-top: 3em;
+  padding-top: 2em;
+  border-top: 2px solid #fe63e0;
   text-align: center;
+  font-size: 0.9em;
   color: #aaa;
-  font-size: 0.95em;
+}
+
+.owner-signature {
+  margin: 1em 0;
+  font-size: 1.1em;
+}
+
+.owner-signature strong {
+  color: #fe63e0;
+  text-shadow: 0 0 10px #fe63e0;
+}
+
+footer a {
+  color: #fe63e0;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 1em;
+  }
+  
+  .app-actions, .repo-buttons {
+    flex-direction: column;
+  }
+  
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
 }

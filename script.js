@@ -1,4 +1,7 @@
-console.log("FUF Beta App Loaded");
+4// KMS Holman - A True Fintech Lending
+// Beta App JavaScript
+
+console.log("KMS Holman Beta App Loaded");
 
 // Wallet connection functionality
 function connectWallet() {
@@ -19,10 +22,11 @@ function connectWallet() {
 
 // Demo view functionality
 function viewDemo() {
-  alert('Demo Mode: This beta showcases FUF\'s cross-chain futures platform.\n\nFeatures:\n• Multi-chain support\n• Real-time oracle pricing\n• Instant lending with crypto collateral\n• Low transaction fees with FUF tokens\n\nConnect your wallet to explore live functionality!');
+  alert('Demo Mode: KMS Holman - A True Fintech Lending\n\nThis beta showcases our innovative cross-chain futures platform.\n\nFeatures:\n• Multi-chain support\n• Real-time oracle pricing\n• Instant lending with crypto collateral\n• Low transaction fees\n• Built on core values: Integrity, Transparency, Innovation, Customer-Centricity\n\nConnect your wallet to explore live functionality!');
 }
 
 // Initialize app
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('FUF Beta initialized');
+  console.log('KMS Holman Beta initialized');
+  console.log('Powered by innovation, driven by integrity.');
 });

@@ -1,140 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KMS Holman – A True Fintech Lending - Beta</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KMS Holman's Legacy Lending - 3D Bank Counter</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="container">
-    <header>
-      <img src="assets/logo.png" alt="KMS Holman Logo" class="logo">
-      <h1>KMS Holman – A True Fintech Lending</h1>
-      <p class="subtitle">Integrity. Transparency. Innovation. Customer-Centricity.</p>
+    <!-- Header with Branding -->
+    <header class="site-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1 class="brand-title">KMS Holman's Legacy Lending</h1>
+                <p class="brand-subtitle">Where Innovation Meets Tradition</p>
+            </div>
+            <button class="wallet-btn" id="walletBtn">Connect Wallet</button>
+        </div>
     </header>
 
-    <section class="hero">
-      <div class="mascot-bg">
-        <img src="assets/mascot.png" alt="KMS Holman Mascot">
-      </div>
-      <h2>🚀 Beta App Now Live - Test It Today!</h2>
-      <p>Liquid, cross-chain futures—secured by real-time oracles. Powered by innovative fintech solutions.</p>
-      <div class="beta-notice" style="background: #ff6b00; color: white; padding: 15px; border-radius: 10px; margin: 20px 0; text-align: center;">
-        <h3 style="margin: 0 0 10px 0;">⚠️ BETA VERSION - WE NEED YOUR FEEDBACK!</h3>
-        <p style="margin: 0;">This is a beta release. Please test all features and report any issues or suggestions to help us improve!</p>
-      </div>
-      <div class="app-actions">
-        <button class="btn-primary" onclick="connectWallet()">Connect Wallet & Test Beta</button>
-        <button class="btn-secondary" onclick="viewDemo()">View Demo</button>
-      </div>
+    <!-- Main 3D Bank Counter Section -->
+    <main class="bank-counter-scene">
+        <div class="scene-container">
+            <h2 class="scene-title">Welcome to Our Digital Banking Counter</h2>
+            <p class="scene-subtitle">Experience the future of lending with our interactive 3D interface</p>
+            
+            <!-- Three Interactive Windows -->
+            <div class="counter-windows">
+                <!-- Window 1: Loan Services -->
+                <div class="window-card" data-window="1">
+                    <div class="window-frame">
+                        <div class="window-header">
+                            <span class="window-number">Window 1</span>
+                            <span class="window-title">Loan Services</span>
+                        </div>
+                        <div class="window-content">
+                            <div class="service-icon">💰</div>
+                            <h3>Personal & Business Loans</h3>
+                            <p>Quick approval, competitive rates, flexible terms tailored to your needs.</p>
+                            <button class="window-btn" onclick="openWindow('loan')">Apply Now</button>
+                        </div>
+                        <div class="window-glow"></div>
+                    </div>
+                </div>
+
+                <!-- Window 2: Account Management -->
+                <div class="window-card" data-window="2">
+                    <div class="window-frame">
+                        <div class="window-header">
+                            <span class="window-number">Window 2</span>
+                            <span class="window-title">Account Management</span>
+                        </div>
+                        <div class="window-content">
+                            <div class="service-icon">🏦</div>
+                            <h3>Manage Your Portfolio</h3>
+                            <p>Real-time tracking, secure transactions, comprehensive financial overview.</p>
+                            <button class="window-btn" onclick="openWindow('account')">View Account</button>
+                        </div>
+                        <div class="window-glow"></div>
+                    </div>
+                </div>
+
+                <!-- Window 3: Investment Opportunities -->
+                <div class="window-card" data-window="3">
+                    <div class="window-frame">
+                        <div class="window-header">
+                            <span class="window-number">Window 3</span>
+                            <span class="window-title">Investment Hub</span>
+                        </div>
+                        <div class="window-content">
+                            <div class="service-icon">📈</div>
+                            <h3>Investment Opportunities</h3>
+                            <p>Explore curated investment options with expert guidance and market insights.</p>
+                            <button class="window-btn" onclick="openWindow('investment')">Explore Now</button>
+                        </div>
+                        <div class="window-glow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Tribute Section -->
+    <section class="tribute-section">
+        <div class="tribute-content">
+            <h2 class="tribute-title">A Legacy of Excellence</h2>
+            <p class="tribute-text">
+                Founded on the principles of integrity and innovation, KMS Holman's Legacy Lending 
+                carries forward a proud tradition of financial service excellence. We blend cutting-edge 
+                technology with time-honored banking values to serve our community with distinction.
+            </p>
+            <div class="tribute-values">
+                <div class="value-item">
+                    <span class="value-icon">🛡️</span>
+                    <h4>Trust & Security</h4>
+                </div>
+                <div class="value-item">
+                    <span class="value-icon">💡</span>
+                    <h4>Innovation</h4>
+                </div>
+                <div class="value-item">
+                    <span class="value-icon">🤝</span>
+                    <h4>Community</h4>
+                </div>
+                <div class="value-item">
+                    <span class="value-icon">⭐</span>
+                    <h4>Excellence</h4>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="core-values">
-      <h2>Our Core Values</h2>
-      <div class="values-grid">
-        <div class="value-card">
-          <h3>🎯 Integrity</h3>
-          <p>We maintain the highest standards of honesty and ethical conduct in all our operations.</p>
+    <!-- Modal Popups -->
+    <div class="modal" id="loanModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('loanModal')">&times;</span>
+            <h2>Loan Application</h2>
+            <form class="modal-form">
+                <label>Loan Type:</label>
+                <select>
+                    <option>Personal Loan</option>
+                    <option>Business Loan</option>
+                    <option>Mortgage</option>
+                    <option>Auto Loan</option>
+                </select>
+                <label>Amount Requested:</label>
+                <input type="number" placeholder="Enter amount">
+                <label>Purpose:</label>
+                <textarea placeholder="Describe loan purpose" rows="3"></textarea>
+                <button type="button" class="submit-btn" onclick="submitForm('loan')">Submit Application</button>
+            </form>
         </div>
-        <div class="value-card">
-          <h3>🔍 Transparency</h3>
-          <p>We believe in open communication and clear disclosure to build trust with our clients.</p>
-        </div>
-        <div class="value-card">
-          <h3>💡 Innovation</h3>
-          <p>We continuously embrace cutting-edge technology to deliver superior fintech solutions.</p>
-        </div>
-        <div class="value-card">
-          <h3>❤️ Customer-Centricity</h3>
-          <p>Our clients' success is at the heart of everything we do.</p>
-        </div>
-      </div>
-    </section>
+    </div>
 
-    <section class="features">
-      <h2>Key Features (Beta)</h2>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <h3>Cross-Chain Trading</h3>
-          <p>Trade futures across multiple blockchain networks seamlessly.</p>
+    <div class="modal" id="accountModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('accountModal')">&times;</span>
+            <h2>Account Overview</h2>
+            <div class="account-details">
+                <div class="account-item">
+                    <span class="account-label">Account Balance:</span>
+                    <span class="account-value">$0.00</span>
+                </div>
+                <div class="account-item">
+                    <span class="account-label">Active Loans:</span>
+                    <span class="account-value">0</span>
+                </div>
+                <div class="account-item">
+                    <span class="account-label">Credit Score:</span>
+                    <span class="account-value">N/A</span>
+                </div>
+                <p class="connect-notice">Connect your wallet to view full account details</p>
+            </div>
         </div>
-        <div class="feature-card">
-          <h3>Real-Time Oracles</h3>
-          <p>Secure price feeds from decentralized oracle networks.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Instant Lending</h3>
-          <p>Access liquidity instantly with cryptocurrency collateral.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Low Fees</h3>
-          <p>Minimal transaction costs with optimal efficiency.</p>
-        </div>
-      </div>
-    </section>
+    </div>
 
-    <!-- Support Our Mission Section -->
-    <section class="donation-section">
-      <h2>💰 Support Our Mission</h2>
-      <p>Help us build the future of decentralized finance! Your donations support the development and expansion of KMS Holman.</p>
-      <div class="donation-wallets">
-        <div class="wallet-card">
-          <h3>Bitcoin (BTC)</h3>
-          <code>bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</code>
+    <div class="modal" id="investmentModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('investmentModal')">&times;</span>
+            <h2>Investment Opportunities</h2>
+            <div class="investment-options">
+                <div class="investment-card">
+                    <h4>Conservative Portfolio</h4>
+                    <p>Low risk, steady returns</p>
+                    <span class="returns">4-6% APY</span>
+                </div>
+                <div class="investment-card">
+                    <h4>Balanced Growth</h4>
+                    <p>Moderate risk, balanced approach</p>
+                    <span class="returns">8-12% APY</span>
+                </div>
+                <div class="investment-card">
+                    <h4>Aggressive Growth</h4>
+                    <p>Higher risk, maximum potential</p>
+                    <span class="returns">15-25% APY</span>
+                </div>
+            </div>
         </div>
-        <div class="wallet-card">
-          <h3>Ethereum (ETH)</h3>
-          <code>0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb</code>
+    </div>
+
+    <div class="modal" id="walletModal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeModal('walletModal')">&times;</span>
+            <h2>Connect Your Wallet</h2>
+            <div class="wallet-options">
+                <button class="wallet-option" onclick="connectWalletType('metamask')">
+                    <span class="wallet-icon">🦊</span>
+                    MetaMask
+                </button>
+                <button class="wallet-option" onclick="connectWalletType('coinbase')">
+                    <span class="wallet-icon">💼</span>
+                    Coinbase Wallet
+                </button>
+                <button class="wallet-option" onclick="connectWalletType('walletconnect')">
+                    <span class="wallet-icon">🔗</span>
+                    WalletConnect
+                </button>
+            </div>
         </div>
-        <div class="wallet-card">
-          <h3>Solana (SOL)</h3>
-          <code>7EqQdEUomqa9SNPRykMFB8iqMzGHJ6ePvT3PHWnqKvjv</code>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p class="footer-text">
+                &copy; 2024 KMS Holman's Legacy Lending. All rights reserved.
+            </p>
+            <p class="owner-signature">
+                Crafted with dedication by <strong>jholman0645</strong>
+            </p>
         </div>
-        <div class="wallet-card">
-          <h3>Cash App</h3>
-          <code>$johnholman46</code>
-        </div>
-      </div>
-      <p style="font-style: italic; margin-top: 15px;">Every contribution helps us innovate and serve our community better.</p>
-    </section>
-
-    <section class="about">
-      <h2>📖 About</h2>
-      <p>KMS Holman – A True Fintech Lending is a revolutionary cross-chain DeFi platform that combines innovative lending protocols with futures trading capabilities.</p>
-      <p><strong>Our Vision:</strong> To democratize finance through blockchain technology and create a more inclusive financial ecosystem.</p>
-      <p><strong>Our Mission:</strong> Deliver secure, transparent, and innovative fintech solutions that empower individuals and businesses to achieve their financial goals.</p>
-    </section>
-
-    <!-- Beta Testing Call-to-Action -->
-    <section class="beta-cta" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 40px 20px; border-radius: 15px; text-align: center; margin: 30px 0;">
-      <h2 style="margin: 0 0 15px 0;">👥 Beta Testers Wanted!</h2>
-      <p style="font-size: 1.1em; margin: 0 0 20px 0;">Help us perfect KMS Holman by testing our beta features. Your feedback is invaluable!</p>
-      <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-        <button class="btn-primary" onclick="connectWallet()" style="background: white; color: #667eea; padding: 12px 30px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Start Testing Now</button>
-        <a href="https://github.com/jholman0645/FuturesUniversalFunding_FUF-/issues" target="_blank" style="background: rgba(255,255,255,0.2); color: white; padding: 12px 30px; border-radius: 8px; font-weight: bold; text-decoration: none; display: inline-block;">Report Issues</a>
-      </div>
-    </section>
-
-    <section class="community">
-      <h2>Join the Community</h2>
-      <p>Be part of the next generation of decentralized finance.</p>
-      <div class="social-links">
-        <a href="#" class="social-btn">Twitter</a>
-        <a href="#" class="social-btn">Discord</a>
-        <a href="#" class="social-btn">Telegram</a>
-        <a href="https://github.com/jholman0645" class="social-btn" target="_blank">GitHub</a>
-      </div>
-    </section>
-
-    <footer>
-      <p>© 2025 <strong>KMS Holman – A True Fintech Lending</strong>. All rights reserved.</p>
-      <p>Powered by innovation, driven by integrity.</p>
-      <p><a href="https://github.com/jholman0645" target="_blank" style="color: #00d4ff; text-decoration: none;">View All Our Projects on GitHub</a></p>
-      <p style="font-style: italic; margin-top: 10px;">Signed by John Holman, in honor of Kiara Jink Holman (07/02/23 - 01/18/24)</p>
-      <p style="font-style: italic;">❤️ Forever in our hearts, forever inspiring our mission.</p>
     </footer>
-  </div>
-  <script src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>

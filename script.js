@@ -1,267 +1,177 @@
-// KMS Holman's Legacy Lending - Full Token & Wallet Integration
-// Enhanced DeFi Platform with Cross-Chain Support
+// KMS Holman's Legacy Lending - Universal DeFi Highway Interactions
+// Make all buttons/connect actions interactive with graceful fallbacks
 
-// Global variables
 let web3Provider = null;
 let userAccount = null;
 let kmsTokenBalance = 0;
-const KMS_TOKEN_ADDRESS = '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb';
-const KMS_TOKEN_DECIMALS = 18;
+let apy = 15.7;
 
-// Simulated token price (in production, fetch from oracle/API)
-let tokenPrice = 1.00;
-
-// Initialize app on page load
-document.addEventListener('DOMContentLoaded', function() {
-  console.log('KMS Holman\'s Legacy Lending App Loaded');
-  initializeApp();
-  setupEventListeners();
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+  detectWallet();
+  wireUI();
+  animateStats();
 });
 
-function initializeApp() {
-  // Check if user has MetaMask or Web3 wallet
+function detectWallet(){
   if (typeof window.ethereum !== 'undefined') {
-    console.log('Web3 wallet detected');
     web3Provider = window.ethereum;
+    console.log('Web3 wallet detected');
   } else {
-    console.log('No Web3 wallet detected. Please install MetaMask.');
-  }
-  
-  // Update UI
-  updateTokenPrice();
-}
-
-function setupEventListeners() {
-  // Wallet connection
-  const connectWalletBtn = document.getElementById('connectWallet');
-  if (connectWalletBtn) {
-    connectWalletBtn.addEventListener('click', connectWallet);
-  }
-  
-  // Token balance refresh
-  const refreshBalanceBtn = document.getElementById('refreshBalance');
-  if (refreshBalanceBtn) {
-    refreshBalanceBtn.addEventListener('click', refreshTokenBalance);
-  }
-  
-  // Lending actions
-  const supplyBtn = document.getElementById('supplyBtn');
-  if (supplyBtn) {
-    supplyBtn.addEventListener('click', handleSupply);
-  }
-  
-  const borrowBtn = document.getElementById('borrowBtn');
-  if (borrowBtn) {
-    borrowBtn.addEventListener('click', handleBorrow);
-  }
-  
-  // Futures trading
-  const openLongBtn = document.getElementById('openLong');
-  if (openLongBtn) {
-    openLongBtn.addEventListener('click', () => handleFuturesPosition('long'));
-  }
-  
-  const openShortBtn = document.getElementById('openShort');
-  if (openShortBtn) {
-    openShortBtn.addEventListener('click', () => handleFuturesPosition('short'));
-  }
-  
-  // Wallet settings
-  const walletSettingsBtn = document.getElementById('walletSettings');
-  if (walletSettingsBtn) {
-    walletSettingsBtn.addEventListener('click', openWalletSettings);
+    console.log('No Web3 wallet detected');
   }
 }
 
-async function connectWallet() {
-  if (!web3Provider) {
-    alert('Please install MetaMask or another Web3 wallet to connect.');
+function wireUI(){
+  onClick('connectWallet', connectWallet);
+  onClick('disconnectWallet', disconnectWallet);
+  onClick('lendBtn', () => handleBridgeAction('lend'));
+  onClick('borrowBtn', () => handleBridgeAction('borrow'));
+  onClick('stakeBtn', handleStake);
+  onClick('unstakeBtn', handleUnstake);
+  onClick('claimRewards', handleClaimRewards);
+  // Hover interactions for chips
+  document.querySelectorAll('.token-chip,.exchange-node,.reactive-btn').forEach(el => {
+    el.addEventListener('mouseenter', () => el.classList.add('hovered'));
+    el.addEventListener('mouseleave', () => el.classList.remove('hovered'));
+  });
+}
+
+function onClick(id, handler){
+  const el = document.getElementById(id);
+  if (el) el.addEventListener('click', handler);
+}
+
+async function connectWallet(){
+  if (!web3Provider){
+    alert('No Web3 wallet found. Opening MetaMask download page...');
     window.open('https://metamask.io/download/', '_blank');
     return;
   }
-  
-  try {
-    // Request account access
+  try{
     const accounts = await web3Provider.request({ method: 'eth_requestAccounts' });
     userAccount = accounts[0];
-    
-    // Get network information
-    const chainId = await web3Provider.request({ method: 'eth_chainId' });
-    const networkName = getNetworkName(chainId);
-    
-    // Update UI
-    document.getElementById('connectWallet').classList.add('hidden');
-    const walletAddressEl = document.getElementById('walletAddress');
-    walletAddressEl.textContent = `${userAccount.substring(0, 6)}...${userAccount.substring(38)}`;
-    walletAddressEl.classList.remove('hidden');
-    
-    document.getElementById('network').textContent = networkName;
-    
-    // Load token balance
-    await loadTokenBalance();
-    
-    console.log('Wallet connected:', userAccount);
-    
-    // Listen for account changes
-    web3Provider.on('accountsChanged', handleAccountsChanged);
-    web3Provider.on('chainChanged', handleChainChanged);
-    
-  } catch (error) {
-    console.error('Error connecting wallet:', error);
-    alert('Failed to connect wallet. Please try again.');
+    document.getElementById('wallet-status')?.style && (document.getElementById('wallet-status').style.display = 'block');
+    const addrEl = document.getElementById('walletAddress');
+    if (addrEl) addrEl.textContent = `${userAccount.slice(0,6)}...${userAccount.slice(-4)}`;
+    await refreshBalances();
+    web3Provider.on?.('accountsChanged', handleAccountsChanged);
+    web3Provider.on?.('chainChanged', () => window.location.reload());
+  }catch(err){
+    console.error(err);
+    alert('Wallet connection was rejected or failed.');
   }
 }
 
-function getNetworkName(chainId) {
-  const networks = {
-    '0x1': 'Ethereum Mainnet',
-    '0x38': 'Binance Smart Chain',
-    '0x89': 'Polygon',
-    '0xaa36a7': 'Sepolia Testnet',
-    '0x5': 'Goerli Testnet'
-  };
-  return networks[chainId] || `Chain ID: ${chainId}`;
+function disconnectWallet(){
+  userAccount = null;
+  const ws = document.getElementById('wallet-status');
+  if (ws) ws.style.display = 'none';
+  alert('Wallet disconnected locally.');
 }
 
-async function loadTokenBalance() {
-  if (!userAccount) {
-    console.log('No wallet connected');
-    return;
-  }
-  
-  try {
-    // In production, call actual ERC-20 contract
-    // For demo, simulate balance
-    kmsTokenBalance = Math.random() * 1000;
-    
-    // Update UI
-    document.getElementById('tokenBalance').textContent = `${kmsTokenBalance.toFixed(2)} KMST`;
-    
-  } catch (error) {
-    console.error('Error loading token balance:', error);
-  }
+async function refreshBalances(){
+  // Demo balances
+  const eth = (Math.random()*0.5).toFixed(4);
+  const kmst = (Math.random()*1000).toFixed(2);
+  const usdc = (Math.random()*500).toFixed(2);
+  setText('ethBalance', eth);
+  setText('tokenBalance', `${kmst} KMST`);
+  setText('usdcBalance', usdc);
 }
 
-async function refreshTokenBalance() {
-  if (!userAccount) {
-    alert('Please connect your wallet first.');
-    return;
+function setText(id, value){
+  const el = document.getElementById(id); if (el) el.textContent = value;
+}
+
+async function handleBridgeAction(type){
+  const asset = valueOf('lendingAsset');
+  const amount = parseFloat(valueOf('lendAmount'));
+  if (!asset || !amount || amount <= 0){
+    return alert('Enter a valid amount and asset.');
   }
-  
-  const refreshBtn = document.getElementById('refreshBalance');
-  const originalText = refreshBtn.textContent;
-  refreshBtn.textContent = 'Refreshing...';
-  refreshBtn.disabled = true;
-  
-  await loadTokenBalance();
-  
+  const verb = type === 'lend' ? 'Bridge & Lend' : 'Cross-Chain Borrow';
+  simulateTx(`${verb} ${amount} ${asset}`, 2000, () => {
+    // update displayed APY/borrow capacity demo
+    apy = (15 + Math.random()*2).toFixed(1);
+    setText('currentAPY', `${apy}%`);
+  });
+}
+
+function valueOf(id){
+  const el = document.getElementById(id); return el ? el.value : '';
+}
+
+function simulateTx(label, ms, onDone){
+  const btns = document.querySelectorAll('.action-btn');
+  btns.forEach(b => b.disabled = true);
+  const original = label;
+  const loading = document.createElement('div');
+  loading.className = 'window';
+  loading.textContent = `${label} in progress...`;
+  document.body.appendChild(loading);
   setTimeout(() => {
-    refreshBtn.textContent = originalText;
-    refreshBtn.disabled = false;
-  }, 1000);
+    document.body.removeChild(loading);
+    alert(`${original} successful (demo).`);
+    btns.forEach(b => b.disabled = false);
+    onDone && onDone();
+  }, ms);
 }
 
-function updateTokenPrice() {
-  // Simulate price fluctuation (in production, fetch from oracle)
-  tokenPrice = (0.95 + Math.random() * 0.1).toFixed(2);
-  document.getElementById('tokenPrice').textContent = `$${tokenPrice}`;
-  
-  // Update every 10 seconds
-  setTimeout(updateTokenPrice, 10000);
+function handleStake(){
+  const amt = parseFloat(valueOf('stakeAmount'));
+  if (!amt || amt <= 0) return alert('Enter a valid stake amount.');
+  simulateTx(`Stake ${amt} KMST`, 1500, () => {
+    incrementDisplay('userStake', amt, ' KMST');
+    incrementDisplay('userRewards', Math.max(0.01*amt, 0.1), ' KMST');
+  });
+}
+function handleUnstake(){
+  const current = getNumeric('userStake');
+  if (current <= 0) return alert('Nothing to unstake.');
+  simulateTx(`Unstake ${current} KMST`, 1200, () => {
+    setText('userStake', '0 KMST');
+  });
+}
+function handleClaimRewards(){
+  const rewards = getNumeric('userRewards');
+  if (rewards <= 0) return alert('No rewards to claim yet.');
+  simulateTx(`Claim ${rewards} KMST`, 1000, () => setText('userRewards', '0 KMST'));
 }
 
-async function handleSupply() {
-  if (!userAccount) {
-    alert('Please connect your wallet first.');
-    return;
-  }
-  
-  const amount = document.getElementById('supplyAmount').value;
-  
-  if (!amount || amount <= 0) {
-    alert('Please enter a valid amount to supply.');
-    return;
-  }
-  
-  // Simulate supply transaction
-  const confirmSupply = confirm(`Supply ${amount} KMST to the lending pool?\n\nThis is a demo. In production, this would execute a smart contract transaction.`);
-  
-  if (confirmSupply) {
-    alert(`Success! Supplied ${amount} KMST to lending pool.\n\nTransaction hash: 0x${Math.random().toString(16).substring(2, 66)}`);
-    document.getElementById('supplyAmount').value = '';
-  }
+function getNumeric(id){
+  const el = document.getElementById(id); if (!el) return 0;
+  const num = parseFloat((el.textContent||'0').replace(/[^0-9.]/g,''));
+  return isNaN(num) ? 0 : num;
 }
 
-async function handleBorrow() {
-  if (!userAccount) {
-    alert('Please connect your wallet first.');
-    return;
-  }
-  
-  const amount = document.getElementById('borrowAmount').value;
-  
-  if (!amount || amount <= 0) {
-    alert('Please enter a valid amount to borrow.');
-    return;
-  }
-  
-  // Simulate borrow transaction
-  const confirmBorrow = confirm(`Borrow ${amount} KMST from the lending pool?\n\nThis is a demo. In production, this would execute a smart contract transaction.`);
-  
-  if (confirmBorrow) {
-    alert(`Success! Borrowed ${amount} KMST from lending pool.\n\nTransaction hash: 0x${Math.random().toString(16).substring(2, 66)}`);
-    document.getElementById('borrowAmount').value = '';
-  }
+function incrementDisplay(id, delta, suffix=''){
+  const current = getNumeric(id);
+  const next = (current + delta).toFixed(2) + suffix;
+  setText(id, next);
 }
 
-function handleFuturesPosition(positionType) {
-  if (!userAccount) {
-    alert('Please connect your wallet first.');
-    return;
+// Fun: animate hero stats on load
+function animateStats(){
+  const tvlEl = document.getElementById('tvl');
+  const apyEl = document.getElementById('apy');
+  const usersEl = document.getElementById('users');
+  if (!tvlEl || !apyEl || !usersEl) return;
+  countUp(tvlEl, 0, 2847392, 1600, v => `$${v.toLocaleString()}`);
+  countUp(apyEl, 0, 15.7, 1200, v => `${v.toFixed(1)}%`);
+  countUp(usersEl, 0, 1247, 1300, v => `${Math.floor(v)}`);
+}
+
+function countUp(el, from, to, duration, fmt){
+  const start = performance.now();
+  function frame(now){
+    const t = Math.min(1, (now - start)/duration);
+    const val = from + (to - from) * easeOutCubic(t);
+    el.textContent = fmt(val);
+    if (t < 1) requestAnimationFrame(frame);
   }
-  
-  const tradingPair = document.getElementById('tradingPair').value;
-  
-  alert(`Opening ${positionType.toUpperCase()} position on ${tradingPair}\n\nFutures trading features coming soon!\n\nStay tuned for advanced trading capabilities.`);
+  requestAnimationFrame(frame);
 }
+function easeOutCubic(t){ return 1 - Math.pow(1 - t, 3); }
 
-function openWalletSettings() {
-  if (!userAccount) {
-    alert('Please connect your wallet first.');
-    return;
-  }
-  
-  alert(`KMS Wallet Settings\n\nConnected Account: ${userAccount}\nToken Balance: ${kmsTokenBalance.toFixed(2)} KMST\n\nAdvanced settings coming soon!`);
-}
-
-function handleAccountsChanged(accounts) {
-  if (accounts.length === 0) {
-    // User disconnected wallet
-    userAccount = null;
-    document.getElementById('connectWallet').classList.remove('hidden');
-    document.getElementById('walletAddress').classList.add('hidden');
-    document.getElementById('tokenBalance').textContent = '0.00 KMST';
-    document.getElementById('network').textContent = 'Not Connected';
-  } else {
-    // User switched accounts
-    userAccount = accounts[0];
-    const walletAddressEl = document.getElementById('walletAddress');
-    walletAddressEl.textContent = `${userAccount.substring(0, 6)}...${userAccount.substring(38)}`;
-    loadTokenBalance();
-  }
-}
-
-function handleChainChanged(chainId) {
-  // Reload page when chain changes
-  window.location.reload();
-}
-
-// Error handling for Web3
-window.addEventListener('error', function(event) {
-  console.error('Global error:', event.error);
-});
-
-// Log initialization
-console.log('KMS Holman Legacy Lending - Initialized');
-console.log('Token Address:', KMS_TOKEN_ADDRESS);
-console.log('Ready for Web3 integration');
+console.log('Universal DeFi Highway script loaded');

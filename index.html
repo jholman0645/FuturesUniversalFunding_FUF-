@@ -1,217 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KMS Holman's Legacy Lending - 3D Bank Counter</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>KMS Holman's Legacy Lending</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body { background: linear-gradient(135deg, #1a0550 60%, #19003b 100%);
+      color: #fff; font-family: 'Orbitron', sans-serif; margin: 0; }
+    header { text-align: center; padding: 2em 1em 1em 1em;}
+    h1 { font-size: 2.8em; margin: 0; color: #68d3fc; }
+    h3 {font-size: 1.4em; color: #f44fcf;}
+    #donation-wallets, #core-values, #tribute {background: rgba(30,0,75,0.85); margin:2em auto; padding:1.5em; border-radius:18px; max-width:650px; box-shadow:0 0 40px #0fff;}
+    ul {padding-left:1em;}
+    li {margin-bottom:8px;}
+    #tribute { border: 2px solid #fd36c5; color: #ffdaf6;}
+    .window {display:inline-block; vertical-align:top; width:30%; min-height:360px; margin:1%; background: linear-gradient(120deg,#330091ee 52%,#f44fcfee 100%); border-radius:22px; box-shadow:0 0 28px #0fff; text-align:center;}
+    .token-logo { margin-top:18px; width:88px; height:88px; background:radial-gradient(circle,#68d3fc 40%,#f44fcf 120%); border-radius:50%; display:inline-block; box-shadow:0 0 22px 6px #fffccf; }
+    footer {text-align:center; margin:2em 0; color:#ccc;}
+  </style>
 </head>
 <body>
-    <!-- Header with Branding -->
-    <header class="site-header">
-        <div class="header-content">
-            <div class="logo-section">
-                <h1 class="brand-title">KMS Holman's Legacy Lending</h1>
-                <p class="brand-subtitle">Where Innovation Meets Tradition</p>
-            </div>
-            <button class="wallet-btn" id="walletBtn">Connect Wallet</button>
-        </div>
-    </header>
 
-    <!-- Main 3D Bank Counter Section -->
-    <main class="bank-counter-scene">
-        <div class="scene-container">
-            <h2 class="scene-title">Welcome to Our Digital Banking Counter</h2>
-            <p class="scene-subtitle">Experience the future of lending with our interactive 3D interface</p>
-            
-            <!-- Three Interactive Windows -->
-            <div class="counter-windows">
-                <!-- Window 1: Loan Services -->
-                <div class="window-card" data-window="1">
-                    <div class="window-frame">
-                        <div class="window-header">
-                            <span class="window-number">Window 1</span>
-                            <span class="window-title">Loan Services</span>
-                        </div>
-                        <div class="window-content">
-                            <div class="service-icon">💰</div>
-                            <h3>Personal & Business Loans</h3>
-                            <p>Quick approval, competitive rates, flexible terms tailored to your needs.</p>
-                            <button class="window-btn" onclick="openWindow('loan')">Apply Now</button>
-                        </div>
-                        <div class="window-glow"></div>
-                    </div>
-                </div>
+<header>
+  <h1>KMS Holman's Legacy Lending</h1>
+  <h3>KMS Holman – A True Fintech Lending Where Seamless Connections Never Break</h3>
+</header>
 
-                <!-- Window 2: Account Management -->
-                <div class="window-card" data-window="2">
-                    <div class="window-frame">
-                        <div class="window-header">
-                            <span class="window-number">Window 2</span>
-                            <span class="window-title">Account Management</span>
-                        </div>
-                        <div class="window-content">
-                            <div class="service-icon">🏦</div>
-                            <h3>Manage Your Portfolio</h3>
-                            <p>Real-time tracking, secure transactions, comprehensive financial overview.</p>
-                            <button class="window-btn" onclick="openWindow('account')">View Account</button>
-                        </div>
-                        <div class="window-glow"></div>
-                    </div>
-                </div>
+<div style="text-align:center;">
+  <div class="window">
+    <div class="token-logo"></div>
+    <h3>Window 1: Seamless Token & Exchange</h3>
+    <p>Click for all tokens, live bridges, and swap paths</p>
+  </div>
+  <div class="window">
+    <h3>Window 2: Info & Support</h3>
+    <p>How it works, app details, reviews, support, wallet addresses, API signatures, core values</p>
+  </div>
+  <div class="window">
+    <h3>Window 3: Buy KMS Token & FUF Wallet</h3>
+    <p>Purchase our token, view your wallet, all proceeds routed to platform growth</p>
+  </div>
+</div>
 
-                <!-- Window 3: Investment Opportunities -->
-                <div class="window-card" data-window="3">
-                    <div class="window-frame">
-                        <div class="window-header">
-                            <span class="window-number">Window 3</span>
-                            <span class="window-title">Investment Hub</span>
-                        </div>
-                        <div class="window-content">
-                            <div class="service-icon">📈</div>
-                            <h3>Investment Opportunities</h3>
-                            <p>Explore curated investment options with expert guidance and market insights.</p>
-                            <button class="window-btn" onclick="openWindow('investment')">Explore Now</button>
-                        </div>
-                        <div class="window-glow"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </main>
+<section id="core-values">
+  <h2>🎯 Our Core Values</h2>
+  <ul>
+   <li><strong>Integrity:</strong> Highest standards of honesty and ethical conduct</li>
+   <li><strong>Transparency:</strong> Open communication and clear disclosure</li>
+   <li><strong>Innovation:</strong> Cutting-edge fintech solutions</li>
+   <li><strong>Customer-Centricity:</strong> Our clients' success at the heart</li>
+   <li><strong>Accessibility:</strong> Making financial services open to all</li>
+  </ul>
+</section>
 
-    <!-- Tribute Section -->
-    <section class="tribute-section">
-        <div class="tribute-content">
-            <h2 class="tribute-title">A Legacy of Excellence</h2>
-            <p class="tribute-text">
-                Founded on the principles of integrity and innovation, KMS Holman's Legacy Lending 
-                carries forward a proud tradition of financial service excellence. We blend cutting-edge 
-                technology with time-honored banking values to serve our community with distinction.
-            </p>
-            <div class="tribute-values">
-                <div class="value-item">
-                    <span class="value-icon">🛡️</span>
-                    <h4>Trust & Security</h4>
-                </div>
-                <div class="value-item">
-                    <span class="value-icon">💡</span>
-                    <h4>Innovation</h4>
-                </div>
-                <div class="value-item">
-                    <span class="value-icon">🤝</span>
-                    <h4>Community</h4>
-                </div>
-                <div class="value-item">
-                    <span class="value-icon">⭐</span>
-                    <h4>Excellence</h4>
-                </div>
-            </div>
-        </div>
-    </section>
+<section id="donation-wallets">
+  <h2>💰 Support Our Mission</h2>
+  <ul>
+    <li><strong>Bitcoin (BTC):</strong> bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</li>
+    <li><strong>Ethereum (ETH):</strong> 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb</li>
+    <li><strong>Solana (SOL):</strong> 7EqQdEUomqa9SNPRykMFB8iqMzGHJ6ePvT3PHWnqKvjv</li>
+    <li><strong>Cash App:</strong> $johnholman46</li>
+  </ul>
+</section>
 
-    <!-- Modal Popups -->
-    <div class="modal" id="loanModal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('loanModal')">&times;</span>
-            <h2>Loan Application</h2>
-            <form class="modal-form">
-                <label>Loan Type:</label>
-                <select>
-                    <option>Personal Loan</option>
-                    <option>Business Loan</option>
-                    <option>Mortgage</option>
-                    <option>Auto Loan</option>
-                </select>
-                <label>Amount Requested:</label>
-                <input type="number" placeholder="Enter amount">
-                <label>Purpose:</label>
-                <textarea placeholder="Describe loan purpose" rows="3"></textarea>
-                <button type="button" class="submit-btn" onclick="submitForm('loan')">Submit Application</button>
-            </form>
-        </div>
-    </div>
+<section id="tribute">
+  <h3>Dedicated to my daughters—Maryah, Savannah, and in memory of Kiara Jink Holman (07/02/23 - 01/18/24)—forever inspiring our mission.</h3>
+</section>
 
-    <div class="modal" id="accountModal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('accountModal')">&times;</span>
-            <h2>Account Overview</h2>
-            <div class="account-details">
-                <div class="account-item">
-                    <span class="account-label">Account Balance:</span>
-                    <span class="account-value">$0.00</span>
-                </div>
-                <div class="account-item">
-                    <span class="account-label">Active Loans:</span>
-                    <span class="account-value">0</span>
-                </div>
-                <div class="account-item">
-                    <span class="account-label">Credit Score:</span>
-                    <span class="account-value">N/A</span>
-                </div>
-                <p class="connect-notice">Connect your wallet to view full account details</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="investmentModal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('investmentModal')">&times;</span>
-            <h2>Investment Opportunities</h2>
-            <div class="investment-options">
-                <div class="investment-card">
-                    <h4>Conservative Portfolio</h4>
-                    <p>Low risk, steady returns</p>
-                    <span class="returns">4-6% APY</span>
-                </div>
-                <div class="investment-card">
-                    <h4>Balanced Growth</h4>
-                    <p>Moderate risk, balanced approach</p>
-                    <span class="returns">8-12% APY</span>
-                </div>
-                <div class="investment-card">
-                    <h4>Aggressive Growth</h4>
-                    <p>Higher risk, maximum potential</p>
-                    <span class="returns">15-25% APY</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal" id="walletModal">
-        <div class="modal-content">
-            <span class="modal-close" onclick="closeModal('walletModal')">&times;</span>
-            <h2>Connect Your Wallet</h2>
-            <div class="wallet-options">
-                <button class="wallet-option" onclick="connectWalletType('metamask')">
-                    <span class="wallet-icon">🦊</span>
-                    MetaMask
-                </button>
-                <button class="wallet-option" onclick="connectWalletType('coinbase')">
-                    <span class="wallet-icon">💼</span>
-                    Coinbase Wallet
-                </button>
-                <button class="wallet-option" onclick="connectWalletType('walletconnect')">
-                    <span class="wallet-icon">🔗</span>
-                    WalletConnect
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p class="footer-text">
-                &copy; 2024 KMS Holman's Legacy Lending. All rights reserved.
-            </p>
-            <p class="owner-signature">
-                Crafted with dedication by <strong>jholman0645</strong>
-            </p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+<footer>
+  &copy; 2025 KMS Holman's Legacy Lending | All rights reserved.<br>
+  Powered by innovation, driven by integrity.
+</footer>
 </body>
 </html>

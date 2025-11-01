@@ -30,12 +30,11 @@
             </div>
         </div>
     </div>
-
     <!-- Navigation -->
     <nav class="navbar">
         <div class="logo">
-            <img src="assets/firefly-token-logo.svg" alt="Firefly Token" class="logo-img firefly-animate">
-            <span>KMS Holman's Legacy Lending</span>
+            <img src="" alt="Firefly Token" class="logo-img firefly-animate">
+            KMS Holman's Legacy Lending
         </div>
         <div class="nav-links">
             <a href="#home" class="nav-link active">Home</a>
@@ -45,12 +44,15 @@
             <a href="#about" class="nav-link">About</a>
         </div>
         <button id="connectWallet" class="connect-btn reactive-btn">Connect Wallet</button>
+        <!-- Beta Testing Badge -->
+        <div style="position: absolute; top: 10px; right: 10px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 8px 16px; border-radius: 20px; font-weight: bold; font-size: 14px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); animation: pulse 2s infinite;">
+            🚀 Beta - Ready for Testing
+        </div>
     </nav>
-
     <!-- Main Content -->
     <main class="container">
         <!-- Hero Section with Universal DeFi Highway -->
-        <section id="home" class="section hero">
+        <section class="section hero" id="home">
             <div class="window hero-window floating">
                 <h1>Welcome to the Universal DeFi Highway</h1>
                 <p class="tagline">Seamless Multi-Chain Lending & Staking Platform</p>
@@ -78,9 +80,8 @@
                 </div>
             </div>
         </section>
-
         <!-- Core Values Section -->
-        <section id="values" class="section">
+        <section class="section" id="values">
             <div class="window floating">
                 <h2>Our Core Values</h2>
                 <div class="values-grid">
@@ -107,15 +108,14 @@
                 </div>
             </div>
         </section>
-
         <!-- DeFi Highway Section -->
-        <section id="defi" class="section">
+        <section class="section" id="defi">
             <div class="window floating">
                 <h2>Universal DeFi Highway</h2>
                 <div class="highway-interface">
                     <div class="input-group">
                         <label>Select Source Chain</label>
-                        <select class="input-field reactive-input" id="sourceChain">
+                        <select id="sourceChain" class="input-field reactive-input">
                             <option value="ethereum">Ethereum</option>
                             <option value="bsc">Binance Smart Chain</option>
                             <option value="polygon">Polygon</option>
@@ -124,7 +124,7 @@
                     </div>
                     <div class="input-group">
                         <label>Select Asset</label>
-                        <select class="input-field reactive-input" id="lendingAsset">
+                        <select id="lendingAsset" class="input-field reactive-input">
                             <option value="ETH">Ethereum (ETH)</option>
                             <option value="BTC">Bitcoin (BTC)</option>
                             <option value="USDC">USD Coin (USDC)</option>
@@ -134,29 +134,28 @@
                     </div>
                     <div class="input-group">
                         <label>Amount</label>
-                        <input class="input-field reactive-input" id="lendAmount" type="number" placeholder="0.0" min="0" step="0.01">
+                        <input type="number" id="lendAmount" class="input-field reactive-input" placeholder="0.0" min="0" step="0.01">
                     </div>
                     <div class="action-buttons">
-                        <button class="action-btn primary-btn reactive-btn glowing" id="lendBtn">Bridge & Lend</button>
-                        <button class="action-btn secondary-btn reactive-btn glowing" id="borrowBtn">Cross-Chain Borrow</button>
+                        <button id="lendBtn" class="action-btn primary-btn reactive-btn glowing">Bridge & Lend</button>
+                        <button id="borrowBtn" class="action-btn secondary-btn reactive-btn glowing">Cross-Chain Borrow</button>
                     </div>
                     <div class="highway-stats">
                         <div class="stat-display">
-                            <span>Bridge Fee: </span><span class="highlight">0.05%</span>
+                            <p>Bridge Fee: <span class="highlight">0.05%</span></p>
                         </div>
                         <div class="stat-display">
-                            <span>Current APY: </span><span class="highlight" id="currentAPY">15.7%</span>
+                            <p>Current APY: <span class="highlight" id="currentAPY">15.7%</span></p>
                         </div>
                         <div class="stat-display">
-                            <span>Cross-Chain Time: </span><span class="highlight">~2 minutes</span>
+                            <p>Cross-Chain Time: <span class="highlight">~2 minutes</span></p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- Staking Section -->
-        <section id="staking" class="section">
+        <section class="section" id="staking">
             <div class="window floating">
                 <h2>Multi-Chain Staking Pools</h2>
                 <div class="staking-pools">
@@ -171,56 +170,52 @@
                             <p>Rewards: <span id="userRewards">0 KMST</span></p>
                         </div>
                         <div class="pool-actions">
-                            <input class="input-field reactive-input" id="stakeAmount" type="number" placeholder="Amount to stake">
-                            <button class="action-btn primary-btn reactive-btn glowing" id="stakeBtn">Stake KMST</button>
-                            <button class="action-btn secondary-btn reactive-btn" id="unstakeBtn">Unstake</button>
-                            <button class="action-btn reward-btn reactive-btn glowing" id="claimRewards">Claim Rewards</button>
+                            <input type="number" id="stakeAmount" class="input-field reactive-input" placeholder="Amount to stake">
+                            <button id="stakeBtn" class="action-btn primary-btn reactive-btn glowing">Stake KMST</button>
+                            <button id="unstakeBtn" class="action-btn secondary-btn reactive-btn">Unstake</button>
+                            <button id="claimRewards" class="action-btn reward-btn reactive-btn glowing">Claim Rewards</button>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- Wallet Management Section -->
-        <section id="wallet-status" class="section" style="display: none;">
+        <section class="section" id="wallet-status" style="display: none;">
             <div class="window floating">
                 <h2>Multi-Chain Wallet</h2>
                 <div class="wallet-info">
                     <div class="wallet-address">
-                        <label>Connected Address:</label>
+                        <p>Connected Address:</p>
                         <span id="walletAddress">Not connected</span>
                     </div>
                     <div class="balance-grid">
                         <div class="balance-item">
-                            <span>ETH Balance:</span>
+                            <p>ETH Balance:</p>
                             <span id="ethBalance">0.0000</span>
                         </div>
                         <div class="balance-item">
-                            <span>KMST Balance:</span>
+                            <p>KMST Balance:</p>
                             <span id="tokenBalance">0.0000</span>
                         </div>
                         <div class="balance-item">
-                            <span>USDC Balance:</span>
+                            <p>USDC Balance:</p>
                             <span id="usdcBalance">0.00</span>
                         </div>
                     </div>
-                    <button class="action-btn disconnect-btn reactive-btn" id="disconnectWallet">Disconnect Wallet</button>
+                    <button id="disconnectWallet" class="action-btn disconnect-btn reactive-btn">Disconnect Wallet</button>
                 </div>
             </div>
         </section>
-
         <!-- About & Legacy Section -->
-        <section id="about" class="section">
+        <section class="section" id="about">
             <div class="window floating">
                 <h2>About KMS Holman's Legacy</h2>
                 <div class="about-content">
                     <p>KMS Holman's Legacy Lending represents the future of decentralized finance - a seamless universal highway connecting all major blockchains, tokens, and exchanges. Our platform enables effortless cross-chain lending, borrowing, and staking while maintaining the highest standards of security and user experience.</p>
-                    
                     <div class="mission-statement">
                         <h3>Our Mission</h3>
                         <p>To democratize access to financial services across all blockchain networks, creating a unified DeFi ecosystem that honors innovation, transparency, and community empowerment.</p>
                     </div>
-
                     <div class="features-showcase">
                         <h3>Platform Features</h3>
                         <ul class="features-list">
@@ -236,7 +231,6 @@
             </div>
         </section>
     </main>
-
     <!-- Dedication Footer -->
     <footer class="dedication-footer">
         <div class="footer-content">
@@ -252,14 +246,19 @@
                         <div class="memorial-firefly"></div>
                     </div>
                 </div>
+                <div class="memorial-card" style="margin-top: 2rem;">
+                    <h3>Dedicated With Love</h3>
+                    <p class="dedication-text" style="font-size: 1.2rem; margin: 1rem 0;">To my beloved daughters, Maryah and Savannah</p>
+                    <p class="memorial-message">May this platform be a testament to our family's commitment to innovation, perseverance, and creating a better future for generations to come. Your support and inspiration fuel this dream every day.</p>
+                </div>
             </div>
             <div class="footer-links">
-                <p>&copy; 2025 KMS Holman's Legacy Lending. All rights reserved.</p>
+                <p>© 2025 KMS Holman's Legacy Lending. All rights reserved.</p>
                 <p>Building the future of DeFi, one transaction at a time. ❤️</p>
+                <p style="margin-top: 1rem; font-style: italic; color: #a78bfa;">Created with passion by John Holman</p>
             </div>
         </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>

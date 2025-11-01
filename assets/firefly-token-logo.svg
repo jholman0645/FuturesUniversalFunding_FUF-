@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Gradient Definitions -->
+  <defs>
+    <linearGradient id="firefly-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7B2FF7;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#06D6E0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FE63E0;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FE63E0;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#7B2FF7;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#06D6E0;stop-opacity:0.2" />
+    </radialGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#7B2FF7" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Outer Glow Circle -->
+  <circle cx="100" cy="100" r="95" fill="url(#glow)" opacity="0.3"/>
+  
+  <!-- Main Firefly Body -->
+  <ellipse cx="100" cy="100" rx="40" ry="50" fill="url(#firefly-gradient)" filter="url(#shadow)"/>
+  
+  <!-- Firefly Wings (Left) -->
+  <ellipse cx="70" cy="90" rx="25" ry="35" fill="#06D6E0" opacity="0.6" transform="rotate(-20 70 90)"/>
+  
+  <!-- Firefly Wings (Right) -->
+  <ellipse cx="130" cy="90" rx="25" ry="35" fill="#FE63E0" opacity="0.6" transform="rotate(20 130 90)"/>
+  
+  <!-- Firefly Glow Tail -->
+  <circle cx="100" cy="135" r="15" fill="#FE63E0" opacity="0.9">
+    <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="100" cy="135" r="20" fill="#7B2FF7" opacity="0.4">
+    <animate attributeName="opacity" values="0.2;0.6;0.2" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Firefly Antennae -->
+  <line x1="90" y1="60" x2="85" y2="45" stroke="#06D6E0" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="85" cy="45" r="3" fill="#FE63E0"/>
+  
+  <line x1="110" y1="60" x2="115" y2="45" stroke="#06D6E0" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="115" cy="45" r="3" fill="#FE63E0"/>
+  
+  <!-- Eyes -->
+  <circle cx="90" cy="95" r="4" fill="#FFFFFF"/>
+  <circle cx="110" cy="95" r="4" fill="#FFFFFF"/>
+  
+  <!-- Inner Eye Glow -->
+  <circle cx="90" cy="95" r="2" fill="#06D6E0"/>
+  <circle cx="110" cy="95" r="2" fill="#06D6E0"/>
+  
+  <!-- Text: KMST -->
+  <text x="100" y="175" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="url(#firefly-gradient)" text-anchor="middle">KMST</text>
+</svg>

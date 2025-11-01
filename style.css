@@ -1,239 +1,186 @@
-body {
-  background: linear-gradient(135deg, #0a0a0a 60%, #2d083b 100%);
-  color: #fff;
-  font-family: "Orbitron", Arial, sans-serif;
+/* KMS Holman's Legacy Lending - 3D Bank Counter Styles */
+:root {
+  --blue: #00d4ff;
+  --purple: #7b2ff7;
+  --pink: #fe63e0;
+  --pink-dark: #fd36c5;
+  --white: #ffffff;
+  --bg-dark: #0a0a0f;
+  --bg-deep: #12021b;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
   margin: 0;
   padding: 0;
+  background: radial-gradient(1200px 800px at 20% 10%, rgba(0,212,255,0.06), transparent 60%),
+              radial-gradient(1200px 800px at 80% 0%, rgba(123,47,247,0.07), transparent 60%),
+              linear-gradient(135deg, #0a0a0f 0%, #1a0826 60%, #2a0a3a 100%);
+  color: var(--white);
+  font-family: "Orbitron", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  min-height: 100vh;
 }
 
-.container {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 2em 3em;
-  background: rgba(20, 0, 25, 0.9);
-  border-radius: 1.5em;
-  box-shadow: 0 0 70px 15px #fd36c5;
-  border: 2px solid #fd36c5;
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,15,0.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(254,99,224,0.25);
 }
-
-header {
-  text-align: center;
-}
-
-.logo {
-  width: 90px;
-  margin-top: 10px;
-  filter: drop-shadow(0 0 8px #fd36c5);
-}
-
-h1 {
-  font-size: 2.5em;
-  margin: 0.5em 0 0.2em 0;
-  text-shadow: 0 0 20px #fe63e0;
-}
-
-.subtitle {
-  font-size: 1.1em;
-  color: #aaa;
-  margin-top: 0;
-}
-
-.hero {
-  margin: 4em 0 2em 0;
-  border-radius: 1.2em;
-  background: rgba(30,0,40,.7);
-  box-shadow: 0 0 40px 7px #611ea5;
-  border: 2px solid #fe63e0;
-  padding: 2em;
-  text-align: center;
-}
-
-.mascot-bg img {
-  max-width: 130px;
-  filter: drop-shadow(0 0 16px #fff0fa);
-  margin-bottom: 25px;
-}
-
-.app-actions {
-  margin-top: 2em;
+.header-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
   display: flex;
-  justify-content: center;
-  gap: 1em;
+  align-items: center;
+  justify-content: space-between;
 }
-
-.btn-primary, .btn-secondary {
-  padding: 0.8em 2em;
-  border: none;
-  border-radius: 0.5em;
-  font-size: 1em;
+.brand-title {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, var(--blue), var(--purple), var(--pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 10px rgba(123,47,247,0.25));
+}
+.brand-subtitle {
+  margin: 2px 0 0 0;
+  font-size: 12px;
+  color: #cfcfe6;
+  opacity: 0.85;
+}
+.wallet-btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,212,255,0.5);
+  background: linear-gradient(135deg, rgba(0,212,255,0.15), rgba(123,47,247,0.15));
+  color: var(--white);
   cursor: pointer;
-  transition: all 0.3s;
-  text-decoration: none;
-  display: inline-block;
-  font-family: inherit;
+  transition: all 0.25s ease;
+}
+.wallet-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,212,255,0.25), 0 0 0 1px rgba(0,212,255,0.35) inset;
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #fe63e0, #fd36c5);
-  color: #fff;
-  box-shadow: 0 0 20px #fd36c5;
-}
+/* 3D Scene */
+.bank-counter-scene { padding: 48px 20px 10px; }
+.scene-container { max-width: 1200px; margin: 0 auto; }
+.scene-title { font-size: 28px; margin: 8px 0 6px; text-align: center; }
+.scene-subtitle { text-align: center; color: #c9c9dd; margin: 0 0 28px; }
 
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 30px #fd36c5;
-}
-
-.btn-secondary {
-  background: transparent;
-  border: 2px solid #fe63e0;
-  color: #fe63e0;
-}
-
-.btn-secondary:hover {
-  background: #fe63e0;
-  color: #000;
-}
-
-.features {
-  margin: 3em 0;
-}
-
-.features h2 {
-  text-align: center;
-  font-size: 2em;
-  margin-bottom: 1.5em;
-}
-
-.feature-grid {
+.counter-windows {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5em;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  gap: 22px;
+  perspective: 1200px;
 }
 
-.feature-card {
-  background: rgba(30,0,40,.5);
-  border: 1px solid #fe63e0;
-  border-radius: 1em;
-  padding: 1.5em;
-  text-align: center;
-  transition: transform 0.3s;
+.window-card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 180ms ease, box-shadow 200ms ease;
 }
-
-.feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px #fe63e0;
+.window-frame {
+  position: relative;
+  background: linear-gradient(180deg, rgba(18,2,27,0.9), rgba(30,0,48,0.9));
+  border: 1px solid rgba(254,99,224,0.35);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(123,47,247,0.25), inset 0 0 0 1px rgba(0,212,255,0.12);
 }
-
-.feature-card h3 {
-  color: #fe63e0;
-  margin-top: 0;
+.window-glow {
+  content: "";
+  position: absolute; inset: -2px;
+  background: radial-gradient(600px 200px at 50% -10%, rgba(0,212,255,0.25), transparent 60%),
+              radial-gradient(400px 180px at 50% 120%, rgba(254,99,224,0.18), transparent 60%);
+  pointer-events: none;
 }
-
-.donations {
-  margin: 3em 0;
-  padding: 2em;
-  background: rgba(30,0,40,.5);
-  border: 2px solid #fd36c5;
-  border-radius: 1em;
-  text-align: center;
+.window-header {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, rgba(0,212,255,0.08), rgba(123,47,247,0.08));
+  border-bottom: 1px solid rgba(254,99,224,0.25);
 }
-
-.donations h2 {
-  font-size: 2em;
-  margin-bottom: 0.5em;
+.window-number {
+  font-size: 12px;
+  padding: 4px 8px; border-radius: 999px;
+  background: linear-gradient(135deg, rgba(0,212,255,0.25), rgba(254,99,224,0.25));
+  border: 1px solid rgba(0,212,255,0.35);
 }
-
-.wallet-addresses {
-  margin-top: 2em;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5em;
+.window-title { font-weight: 700; letter-spacing: .3px; }
+.window-content { padding: 18px 16px 22px; text-align: center; }
+.service-icon { font-size: 38px; filter: drop-shadow(0 8px 22px rgba(254,99,224,0.35)); margin: 6px 0 10px; }
+.window-content h3 { margin: 4px 0 6px; font-size: 18px; }
+.window-content p { margin: 0 0 14px; color: #d6d6ea; font-size: 14px; line-height: 1.35; }
+.window-btn {
+  padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(254,99,224,0.45);
+  background: linear-gradient(135deg, rgba(254,99,224,0.25), rgba(253,54,197,0.25));
+  color: var(--white); cursor: pointer; transition: all .22s ease;
 }
+.window-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(253,54,197,0.35); }
 
-.wallet-item {
-  background: rgba(0,0,0,.4);
-  padding: 1em;
-  border-radius: 0.5em;
-  border: 1px solid #fe63e0;
+/* Tribute */
+.tribute-section { padding: 36px 20px 58px; }
+.tribute-content { max-width: 1000px; margin: 0 auto; text-align: center; }
+.tribute-title { font-size: 26px; margin: 0 0 10px; }
+.tribute-text { color: #d6d6ea; margin: 0 auto 18px; max-width: 760px; line-height: 1.5; }
+.tribute-values { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 760px; margin: 0 auto; }
+.value-item { background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.22); border-radius: 12px; padding: 12px; }
+.value-icon { font-size: 20px; display: block; margin-bottom: 6px; }
+
+/* Modals */
+.modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; padding: 18px; background: rgba(0,0,0,0.45); z-index: 200; opacity: 0; transition: opacity .25s ease; }
+.modal-active { opacity: 1; }
+.modal-content {
+  width: min(680px, 92vw);
+  background: linear-gradient(180deg, rgba(18,2,27,0.98), rgba(30,0,48,0.98));
+  border: 1px solid rgba(254,99,224,0.35);
+  border-radius: 16px; padding: 18px 18px 20px;
+  box-shadow: 0 22px 60px rgba(0,0,0,0.5), 0 12px 36px rgba(123,47,247,0.3);
 }
+.modal-close { float: right; font-size: 26px; line-height: 1; cursor: pointer; color: #eee; opacity: .85; }
+.modal-close:hover { opacity: 1; color: var(--pink); }
+.modal h2 { margin: 4px 0 12px; }
 
-.wallet-item h3 {
-  color: #fe63e0;
-  margin: 0 0 0.5em 0;
-  font-size: 1.2em;
+.modal-form label { display: block; margin: 10px 0 6px; font-size: 13px; opacity: .9; }
+.modal-form input,
+.modal-form select,
+.modal-form textarea { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(254,99,224,0.35); background: rgba(255,255,255,0.04); color: var(--white); }
+.modal-form textarea { resize: vertical; }
+.submit-btn { margin-top: 12px; padding: 10px 14px; border-radius: 10px; border: 1px solid rgba(0,212,255,0.45); background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(123,47,247,0.2)); color: var(--white); cursor: pointer; }
+.submit-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 26px rgba(0,212,255,0.25); }
+
+.account-details { display: grid; gap: 10px; }
+.account-item { display: flex; justify-content: space-between; background: rgba(0,212,255,0.06); border: 1px solid rgba(0,212,255,0.18); border-radius: 10px; padding: 10px 12px; }
+.account-label { color: #cfcfe6; }
+.account-value { font-weight: 700; }
+.connect-notice { color: #ffcfef; opacity: .9; margin-top: 6px; }
+
+.investment-options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.investment-card { background: rgba(254,99,224,0.06); border: 1px solid rgba(254,99,224,0.25); border-radius: 12px; padding: 12px; text-align: center; }
+.returns { display: inline-block; margin-top: 6px; padding: 4px 8px; border-radius: 999px; background: rgba(0,212,255,0.15); border: 1px solid rgba(0,212,255,0.35); }
+
+/* Footer */
+.site-footer { border-top: 1px solid rgba(254,99,224,0.25); padding: 18px 16px 26px; background: rgba(10,10,15,0.5); }
+.footer-content { max-width: 1000px; margin: 0 auto; text-align: center; }
+.footer-text { color: #c9c9dd; margin: 0 0 6px; }
+.owner-signature { margin: 0; color: var(--pink); text-shadow: 0 0 10px rgba(254,99,224,0.45); }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .counter-windows { grid-template-columns: repeat(2, minmax(240px, 1fr)); }
+  .investment-options { grid-template-columns: repeat(2, 1fr); }
 }
-
-.wallet-item code {
-  color: #fff;
-  background: rgba(0,0,0,.6);
-  padding: 0.5em;
-  border-radius: 0.3em;
-  display: block;
-  word-break: break-all;
-  font-size: 0.9em;
-}
-
-.repo-links {
-  margin: 3em 0;
-  padding: 2em;
-  background: rgba(30,0,40,.5);
-  border: 2px solid #611ea5;
-  border-radius: 1em;
-  text-align: center;
-}
-
-.repo-links h2 {
-  font-size: 2em;
-  margin-bottom: 0.5em;
-}
-
-.repo-buttons {
-  margin-top: 2em;
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  flex-wrap: wrap;
-}
-
-footer {
-  margin-top: 3em;
-  padding-top: 2em;
-  border-top: 2px solid #fe63e0;
-  text-align: center;
-  font-size: 0.9em;
-  color: #aaa;
-}
-
-.owner-signature {
-  margin: 1em 0;
-  font-size: 1.1em;
-}
-
-.owner-signature strong {
-  color: #fe63e0;
-  text-shadow: 0 0 10px #fe63e0;
-}
-
-footer a {
-  color: #fe63e0;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-@media (max-width: 600px) {
-  .container {
-    padding: 1em;
-  }
-  
-  .app-actions, .repo-buttons {
-    flex-direction: column;
-  }
-  
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 640px) {
+  .header-content { flex-direction: column; gap: 10px; }
+  .brand-subtitle { text-align: center; }
+  .counter-windows { grid-template-columns: 1fr; }
+  .investment-options { grid-template-columns: 1fr; }
 }

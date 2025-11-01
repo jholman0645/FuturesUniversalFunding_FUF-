@@ -1,75 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>KMS Holman's Legacy Lending</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { background: linear-gradient(135deg, #1a0550 60%, #19003b 100%);
-      color: #fff; font-family: 'Orbitron', sans-serif; margin: 0; }
-    header { text-align: center; padding: 2em 1em 1em 1em;}
-    h1 { font-size: 2.8em; margin: 0; color: #68d3fc; }
-    h3 {font-size: 1.4em; color: #f44fcf;}
-    #donation-wallets, #core-values, #tribute {background: rgba(30,0,75,0.85); margin:2em auto; padding:1.5em; border-radius:18px; max-width:650px; box-shadow:0 0 40px #0fff;}
-    ul {padding-left:1em;}
-    li {margin-bottom:8px;}
-    #tribute { border: 2px solid #fd36c5; color: #ffdaf6;}
-    .window {display:inline-block; vertical-align:top; width:30%; min-height:360px; margin:1%; background: linear-gradient(120deg,#330091ee 52%,#f44fcfee 100%); border-radius:22px; box-shadow:0 0 28px #0fff; text-align:center;}
-    .token-logo { margin-top:18px; width:88px; height:88px; background:radial-gradient(circle,#68d3fc 40%,#f44fcf 120%); border-radius:50%; display:inline-block; box-shadow:0 0 22px 6px #fffccf; }
-    footer {text-align:center; margin:2em 0; color:#ccc;}
-  </style>
-</head>
-<body>
+body {
+  background: linear-gradient(135deg, #071f4f 45%, #5523a7 100%);
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+}
 
-<header>
-  <h1>KMS Holman's Legacy Lending</h1>
-  <h3>KMS Holman – A True Fintech Lending Where Seamless Connections Never Break</h3>
-</header>
+header {
+  text-align: center;
+  padding: 2em 1em 1em 1em;
+}
 
-<div style="text-align:center;">
-  <div class="window">
-    <div class="token-logo"></div>
-    <h3>Window 1: Seamless Token & Exchange</h3>
-    <p>Click for all tokens, live bridges, and swap paths</p>
-  </div>
-  <div class="window">
-    <h3>Window 2: Info & Support</h3>
-    <p>How it works, app details, reviews, support, wallet addresses, API signatures, core values</p>
-  </div>
-  <div class="window">
-    <h3>Window 3: Buy KMS Token & FUF Wallet</h3>
-    <p>Purchase our token, view your wallet, all proceeds routed to platform growth</p>
-  </div>
-</div>
+h1 {
+  font-size: 2.8em;
+  margin: 0;
+  color: #56b4ff; /* Royal blue highlight */
+  text-shadow: 0 0 18px #fff, 0 0 36px #56b4ff;
+}
 
-<section id="core-values">
-  <h2>🎯 Our Core Values</h2>
-  <ul>
-   <li><strong>Integrity:</strong> Highest standards of honesty and ethical conduct</li>
-   <li><strong>Transparency:</strong> Open communication and clear disclosure</li>
-   <li><strong>Innovation:</strong> Cutting-edge fintech solutions</li>
-   <li><strong>Customer-Centricity:</strong> Our clients' success at the heart</li>
-   <li><strong>Accessibility:</strong> Making financial services open to all</li>
-  </ul>
-</section>
+h3 {
+  font-size: 1.4em;
+  color: #bc6ff1; /* Purple accent */
+  text-shadow: 0 0 8px #fff;
+}
 
-<section id="donation-wallets">
-  <h2>💰 Support Our Mission</h2>
-  <ul>
-    <li><strong>Bitcoin (BTC):</strong> bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh</li>
-    <li><strong>Ethereum (ETH):</strong> 0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb</li>
-    <li><strong>Solana (SOL):</strong> 7EqQdEUomqa9SNPRykMFB8iqMzGHJ6ePvT3PHWnqKvjv</li>
-    <li><strong>Cash App:</strong> $johnholman46</li>
-  </ul>
-</section>
+#windows { margin-top: 44px; text-align: center; }
 
-<section id="tribute">
-  <h3>Dedicated to my daughters—Maryah, Savannah, and in memory of Kiara Jink Holman (07/02/23 - 01/18/24)—forever inspiring our mission.</h3>
-</section>
+.window {
+  background: linear-gradient(120deg, #191c26 70%, #5523a7 100%);
+  border: 4px solid #bc6ff1;
+  box-shadow:
+    0 8px 36px 0 #ff43d1aa,  /* Pink glow */
+    0 1px 14px #555,
+    0 0 64px #fff1;
+  border-radius: 24px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 2% 36px 2%;
+  min-width: 340px;
+  min-height: 400px;
+  padding: 24px 18px 28px 18px;
+  transition: transform 0.25s, box-shadow 0.25s;
+  position: relative;
+  top: 0;
+}
 
-<footer>
-  &copy; 2025 KMS Holman's Legacy Lending | All rights reserved.<br>
-  Powered by innovation, driven by integrity.
-</footer>
-</body>
-</html>
+.window:hover {
+  box-shadow:
+    0 18px 48px 0 #ff43d1ee,
+    0 0 90px #fff6,
+    0 1px 22px #5523a7;
+  transform: translateY(-18px) scale(1.04);
+  z-index: 2;
+}
+
+.token-logo {
+  width: 100px; height: 100px; margin-bottom: 12px;
+  background: radial-gradient(circle, #56b4ff 60%, #bc6ff1 200%);
+  border-radius: 50%;
+  box-shadow:
+    0 0 22px #ff43d1,
+    0 0 44px #fff,
+    0 2px 10px #191c26;
+  display: block; margin-left: auto; margin-right: auto;
+  border: 2px solid #fff;
+}
+
+#donation-wallets, #core-values, #tribute {
+  background: rgba(44, 18, 70, 0.92); /* Dark royal blue/purple overlay */
+  margin: 2em auto;
+  padding: 1.5em;
+  border-radius: 20px;
+  max-width: 650px;
+  box-shadow: 0 0 40px #ff43d1;
+}
+
+button, .window-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #191c26 60%, #fff 100%);
+  color: #5523a7;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1em;
+  border: none;
+  padding: 0.75em 2.5em;
+  margin: 1em 0;
+  border-radius: 10px;
+  box-shadow: 0 0 16px #ff43d1, 0 1px 5px #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: box-shadow 0.25s, transform 0.18s;
+}
+
+button:hover, .window-btn:hover {
+  box-shadow: 0 0 44px #ff43d1, 0 1px 16px #fff;
+  transform: scale(1.08);
+  background: linear-gradient(90deg, #fff 40%, #56b4ff 100%);
+  color: #191c26;
+}
+
+footer {
+  text-align: center;
+  margin: 2em 0;
+  color: #ccc;
+}
+
+/* Optional: Make everything float 3D */
+.window, .token-logo, button {
+  perspective: 800px;
+  will-change: transform, box-shadow;
+}

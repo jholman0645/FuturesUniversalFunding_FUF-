@@ -114,3 +114,65 @@ html,body{margin:0;padding:0;background:
 
 /* Responsive */
 @media(max-width:900px){.bank-counter{grid-template-columns:1fr}.highway-interface{grid-template-columns:1fr}.highway-stats{grid-template-columns:1fr}.balance-grid{grid-template-columns:1fr}}
+.floating-btn {
+  background: linear-gradient(135deg, #723fff 10%, #d726ff 65%, #e6e6fa 100%);
+  color: #fff;
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 1.5em;
+  padding: 0.8em 2em;
+  margin: 1em;
+  cursor: pointer;
+  /* Neon, pink, purple & green glow on button */
+  box-shadow:
+      0 0 10px #d726ff90,
+      0 0 20px #723fff66,
+      0 0 30px #4dc9b0aa,
+      0 0 60px #18ff2f44,
+      0 6px 24px rgba(114, 63, 255, 0.7);
+  transition: transform 0.13s cubic-bezier(.53,-0.41,.68,1.42), box-shadow 0.15s;
+  perspective: 700px;
+  overflow: hidden;
+  position: relative;
+  will-change: transform;
+}
+
+.floating-btn:active .flip-content,
+.floating-btn:focus .flip-content {
+  transform: rotateY(180deg);
+}
+
+/* Metallic Neon Text and Green Glow */
+.flip-content {
+  /* Metallic gradient + clipping */
+  background: linear-gradient(120deg, #e6e6fa 35%, #ababb6 57%, #FFFFFF 90%, #abb8df 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: brightness(1.2) contrast(1.12) drop-shadow(0 0 9px #39ff14) drop-shadow(0 0 3px #c62ed8);
+  text-shadow:
+    0 0 10px #39ff1499,        /* green glow */
+    0 0 24px #d726ff66,        /* pink glow */
+    0 0 8px #723fff88,         /* purple glow */
+    0 1px 1px #ababb6;         /* metallic reflection */
+  letter-spacing: 0.04em;
+  font-size: 1.11em;
+  font-family: 'Orbitron', 'Segoe UI', sans-serif;
+  transition: transform 0.33s cubic-bezier(.7,1.6,.76,1.22);
+}
+
+/* Extra glow on hover */
+.floating-btn:hover, .floating-btn:focus {
+  box-shadow:
+      0 0 30px #d726ffbb,
+      0 0 60px #7e4de988,
+      0 0 50px #39ff14cc,
+      0 12px 32px #c92ffd88;
+  outline: none;
+}
+
+
+
+

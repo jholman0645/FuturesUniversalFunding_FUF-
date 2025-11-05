@@ -1,0 +1,29 @@
+.floating-btn {
+  background: linear-gradient(135deg, #0054E1 30%, #6FE7DD 100%);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 1.5em;
+  padding: 0.8em 2em;
+  margin: 1em;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(32,64,128,0.22);
+  transition: transform 0.13s cubic-bezier(.53,-0.41,.68,1.42), box-shadow 0.1s;
+  perspective: 700px;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.floating-btn:active .flip-content,
+.floating-btn:focus .flip-content {
+  transform: rotateY(180deg);
+}
+
+.flip-content {
+  display: block;
+  transition: transform 0.33s cubic-bezier(.7,1.6,.76,1.22);
+  transform-style: preserve-3d;
+}
+

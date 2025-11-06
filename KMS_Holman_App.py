@@ -1,10 +1,5 @@
-# KMS Holman - A True Fintech Lending App Starter
-# Author: KMS Holman - A True Fintech Lending
-# Version: 2.0.0
-# Core Values: Integrity, Transparency, Innovation, Customer-Centricity
-
 import os
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -17,7 +12,10 @@ COMPANY_NAME = "KMS Holman - A True Fintech Lending"
 
 @app.route('/')
 def index():
-    """Landing route."""
+    """
+    Landing route.
+    Returns a welcome message and app details in JSON format.
+    """
     return jsonify({
         "message": f"Welcome to {COMPANY_NAME}!",
         "company": COMPANY_NAME,
@@ -35,7 +33,10 @@ def index():
 
 @app.route('/build')
 def build_link():
-    """Simulated build link for creating or connecting the front-end app."""
+    """
+    Simulated build link for creating or connecting the front-end app.
+    Returns deployment info in JSON format.
+    """
     build_message = {
         "build_status": "READY",
         "instructions": "Use this link to initiate build deployment.",
@@ -48,7 +49,10 @@ def build_link():
 
 @app.route('/api/donate')
 def donate():
-    """Donation integration route"""
+    """
+    Donation integration route.
+    Returns wallet donation info in JSON format.
+    """
     return jsonify({
         "wallet_address": WALLET_ADDRESS,
         "company": COMPANY_NAME,
@@ -57,7 +61,9 @@ def donate():
 
 @app.route('/api/values')
 def core_values():
-    """Return company core values"""
+    """
+    Returns company core values in JSON format.
+    """
     return jsonify({
         "company": COMPANY_NAME,
         "core_values": {
@@ -73,5 +79,3 @@ if __name__ == "__main__":
     print(f"{COMPANY_NAME} App running on http://localhost:{port}")
     print("Powered by innovation, driven by integrity.")
     app.run(host='0.0.0.0', port=port, debug=True)
-
-# Signed by John Holman, in honor of Kiara Jink Holman (07/02/23 - 01/18/24)
